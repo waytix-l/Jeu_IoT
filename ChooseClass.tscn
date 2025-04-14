@@ -1,0 +1,135 @@
+[gd_scene load_steps=18 format=3 uid="uid://qc0ynhbhoto7"]
+
+[ext_resource type="Script" uid="uid://1pal8jsvff4e" path="res://ChooseClass.gd" id="1_jn2q2"]
+[ext_resource type="PackedScene" uid="uid://da11dmymdk58t" path="res://assets/Characters/rogue_hooded.tscn" id="1_kt4xc"]
+[ext_resource type="PackedScene" uid="uid://c82mv25qr61q" path="res://assets/Characters/rogue.tscn" id="2_tmdhm"]
+[ext_resource type="PackedScene" uid="uid://skv8l83gw25c" path="res://assets/Characters/knight.tscn" id="3_i0nd7"]
+[ext_resource type="Script" uid="uid://dkm4u12at50bc" path="res://scripts/SubViewportClassSelection.gd" id="4_puv6n"]
+[ext_resource type="PackedScene" uid="uid://bphkci7lvtjqr" path="res://prefabs/Players/player_1.tscn" id="5_btek4"]
+[ext_resource type="Script" uid="uid://ybp103gqv2kd" path="res://scripts/PauseScreen.gd" id="7_uab57"]
+[ext_resource type="PackedScene" uid="uid://2suh72yo54qf" path="res://prefabs/Players/player_2.tscn" id="7_wbb45"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_108ij"]
+
+[sub_resource type="Sky" id="Sky_yjcl2"]
+sky_material = SubResource("ProceduralSkyMaterial_108ij")
+
+[sub_resource type="Environment" id="Environment_f3w1r"]
+background_mode = 2
+background_energy_multiplier = 1.44
+sky = SubResource("Sky_yjcl2")
+
+[sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_175na"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_xeexr"]
+size = Vector2(20, 14)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ujdun"]
+albedo_color = Color(0, 0.509804, 1, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_g46q6"]
+material = SubResource("StandardMaterial3D_ujdun")
+size = Vector3(0.5, 0.5, 0.5)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6hkqo"]
+albedo_color = Color(1, 0.141176, 0.0901961, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_c3h7n"]
+material = SubResource("StandardMaterial3D_6hkqo")
+size = Vector3(0.5, 0.5, 0.5)
+
+[node name="ChooseClass" type="Node3D" node_paths=PackedStringArray("SubViewportPlayer1", "SubViewportPlayer2")]
+script = ExtResource("1_jn2q2")
+SubViewportPlayer1 = NodePath("GridContainer/SubViewportContainer/SubViewport")
+SubViewportPlayer2 = NodePath("GridContainer/SubViewportContainer2/SubViewport")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.993181, 0.102145, -0.0561966, -0.0582141, 0.852146, 0.520057, 0.101009, -0.513239, 0.852281, -7.53976, 8.91045, 7.3635)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_f3w1r")
+camera_attributes = SubResource("CameraAttributesPractical_175na")
+
+[node name="Models" type="Node3D" parent="."]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Models"]
+layers = 3
+mesh = SubResource("PlaneMesh_xeexr")
+skeleton = NodePath("../..")
+
+[node name="RogueHooded" parent="Models" instance=ExtResource("1_kt4xc")]
+
+[node name="Rogue" parent="Models" instance=ExtResource("2_tmdhm")]
+transform = Transform3D(0.906308, 0, 0.422618, 0, 1, 0, -0.422618, 0, 0.906308, -2.5, 0, 0.5)
+
+[node name="Knight" parent="Models" instance=ExtResource("3_i0nd7")]
+transform = Transform3D(0.906308, 0, -0.422618, 0, 1, 0, 0.422618, 0, 0.906308, 2.5, 0, 0.5)
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_right = 1396.0
+offset_bottom = 883.0
+color = Color(0.0313726, 0.133333, 0.188235, 1)
+
+[node name="GridContainer" type="GridContainer" parent="."]
+offset_right = 2000.0
+offset_bottom = 1071.0
+columns = 2
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="GridContainer"]
+layout_mode = 2
+
+[node name="SubViewport" type="SubViewport" parent="GridContainer/SubViewportContainer" node_paths=PackedStringArray("selector")]
+handle_input_locally = false
+size = Vector2i(512, 600)
+render_target_update_mode = 4
+script = ExtResource("4_puv6n")
+selector = NodePath("Selector")
+Player = ExtResource("5_btek4")
+
+[node name="Bonus_Screen" type="ColorRect" parent="GridContainer/SubViewportContainer/SubViewport"]
+visible = false
+offset_right = 1396.0
+offset_bottom = 884.0
+color = Color(0.132588, 0.0012307, 0.185961, 1)
+script = ExtResource("7_uab57")
+
+[node name="Camera3D" type="Camera3D" parent="GridContainer/SubViewportContainer/SubViewport"]
+transform = Transform3D(1, 0, 0, 0, 0.976296, 0.21644, 0, -0.21644, 0.976296, 0, 2.208, 6.282)
+cull_mask = 1047553
+
+[node name="Selector" type="MeshInstance3D" parent="GridContainer/SubViewportContainer/SubViewport"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.654, 3, 0)
+mesh = SubResource("BoxMesh_g46q6")
+skeleton = NodePath("../../../..")
+
+[node name="SubViewportContainer2" type="SubViewportContainer" parent="GridContainer"]
+layout_mode = 2
+
+[node name="SubViewport" type="SubViewport" parent="GridContainer/SubViewportContainer2" node_paths=PackedStringArray("selector")]
+handle_input_locally = false
+size = Vector2i(512, 600)
+render_target_update_mode = 4
+script = ExtResource("4_puv6n")
+selector = NodePath("Selector")
+Player = ExtResource("7_wbb45")
+LEFT = "ui_left_player2"
+RIGHT = "ui_right_player2"
+SELECT = "ui_select_player2"
+
+[node name="Bonus_Screen" type="ColorRect" parent="GridContainer/SubViewportContainer2/SubViewport"]
+visible = false
+offset_left = -514.0
+offset_right = 879.0
+offset_bottom = 882.0
+color = Color(0.133333, 0, 0.184314, 1)
+script = ExtResource("7_uab57")
+
+[node name="Camera3D" type="Camera3D" parent="GridContainer/SubViewportContainer2/SubViewport"]
+transform = Transform3D(1, 0, 0, 0, 0.976296, 0.21644, 0, -0.21644, 0.976296, 0, 2.208, 6.282)
+cull_mask = 2
+
+[node name="Selector" type="MeshInstance3D" parent="GridContainer/SubViewportContainer2/SubViewport"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.654, 3, 0)
+layers = 2
+mesh = SubResource("BoxMesh_c3h7n")
+skeleton = NodePath("../../../..")

@@ -1,0 +1,61 @@
+[gd_scene load_steps=6 format=3 uid="uid://2suh72yo54qf"]
+
+[ext_resource type="Script" uid="uid://db4qsxefghawd" path="res://scripts/Player.gd" id="1_v0p7q"]
+[ext_resource type="PackedScene" uid="uid://c82mv25qr61q" path="res://assets/Characters/rogue.tscn" id="2_kfi86"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_ocpp8"]
+font_size = 32
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_oyl6b"]
+viewport_path = NodePath("Spatial/SubViewport")
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_2otxt"]
+radius = 0.6
+
+[node name="Player2" type="CharacterBody3D" groups=["Players"]]
+script = ExtResource("1_v0p7q")
+LEFT = "leftPlayer2"
+RIGHT = "rightPlayer2"
+FORWARD = "forwardPlayer2"
+BACKWARD = "backwardPlayer2"
+
+[node name="Spatial" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.6, 0)
+
+[node name="SubViewport" type="SubViewport" parent="Spatial"]
+transparent_bg = true
+size = Vector2i(200, 50)
+
+[node name="HealthLabel" type="Label" parent="Spatial/SubViewport"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -32.0
+offset_top = -13.0
+offset_right = 32.0
+offset_bottom = 13.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "AAAAAA"
+label_settings = SubResource("LabelSettings_ocpp8")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Sprite3D" type="Sprite3D" parent="Spatial"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.180878, 0)
+billboard = 1
+texture = SubResource("ViewportTexture_oyl6b")
+
+[node name="Character" type="Node3D" parent="." groups=["Character"]]
+
+[node name="Rogue" parent="Character" groups=["MeshCharacter"] instance=ExtResource("2_kfi86")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("CapsuleShape3D_2otxt")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0.766044, -0.642788, 0, 0.642788, 0.766044, 1, 3.34849e-08, -2.80971e-08, -10, 14, 0)

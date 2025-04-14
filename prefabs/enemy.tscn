@@ -1,0 +1,69 @@
+[gd_scene load_steps=8 format=3 uid="uid://cdanw4hgwpiov"]
+
+[ext_resource type="Script" uid="uid://2nxxqcrqnabx" path="res://scripts/Enemy.gd" id="1_t5rwf"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_6n8dw"]
+size = Vector3(2, 1, 2)
+
+[sub_resource type="LabelSettings" id="LabelSettings_6n8dw"]
+font_size = 32
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_6n8dw"]
+viewport_path = NodePath("Spatial/SubViewport")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hdek8"]
+albedo_color = Color(0.917647, 0, 0.0980392, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_l350s"]
+material = SubResource("StandardMaterial3D_hdek8")
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_cc3pb"]
+
+[node name="Enemy" type="CharacterBody3D"]
+script = ExtResource("1_t5rwf")
+move_speed = 5.0
+
+[node name="Area3D" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+shape = SubResource("BoxShape3D_6n8dw")
+
+[node name="Spatial" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8581, 0)
+
+[node name="SubViewport" type="SubViewport" parent="Spatial"]
+transparent_bg = true
+size = Vector2i(200, 50)
+
+[node name="Label" type="Label" parent="Spatial/SubViewport"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -32.0
+offset_top = -11.5
+offset_right = 32.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "AAAaaa"
+label_settings = SubResource("LabelSettings_6n8dw")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Sprite3D" type="Sprite3D" parent="Spatial"]
+billboard = 1
+texture = SubResource("ViewportTexture_6n8dw")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("SphereMesh_l350s")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("SphereShape3D_cc3pb")
+
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
+
+[node name="CooldownTimer" type="Timer" parent="."]
+
+[node name="AttackTimer" type="Timer" parent="."]

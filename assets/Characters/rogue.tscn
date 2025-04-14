@@ -1,0 +1,163 @@
+[gd_scene load_steps=16 format=3 uid="uid://c82mv25qr61q"]
+
+[ext_resource type="PackedScene" uid="uid://cqpq0ciug3vo" path="res://assets/Characters/Rogue.fbx" id="1_ends1"]
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_lo8sf"]
+animation = &"1H_Ranged_Shoot"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_f7t0i"]
+animation = &"Death_A"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_vmhki"]
+animation = &"Death_A_Pose"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_ov55v"]
+animation = &"Idle"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_lyp2t"]
+animation = &"Running_A"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_5eyms"]
+xfade_time = 0.1
+advance_mode = 2
+advance_condition = &"isRunning"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_fafuv"]
+xfade_time = 0.5
+advance_condition = &"isAttacking"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_0kmpp"]
+xfade_time = 0.2
+switch_mode = 2
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_p0ta3"]
+xfade_time = 0.5
+advance_mode = 2
+advance_condition = &"isDead"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_ejs84"]
+switch_mode = 2
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_uxomi"]
+xfade_time = 0.5
+advance_mode = 2
+advance_condition = &"isDead"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_ov55v"]
+xfade_time = 0.1
+advance_mode = 2
+advance_condition = &"isNotRunning"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_lo8sf"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_ov55v"]
+states/Attack1/node = SubResource("AnimationNodeAnimation_lo8sf")
+states/Attack1/position = Vector2(292, 18)
+states/Death/node = SubResource("AnimationNodeAnimation_f7t0i")
+states/Death/position = Vector2(563, 18)
+states/Death_Pose/node = SubResource("AnimationNodeAnimation_vmhki")
+states/Death_Pose/position = Vector2(740, 18)
+states/Idle/node = SubResource("AnimationNodeAnimation_ov55v")
+states/Idle/position = Vector2(292, 147)
+states/Run/node = SubResource("AnimationNodeAnimation_lyp2t")
+states/Run/position = Vector2(506, 147)
+states/Start/position = Vector2(123, 147)
+transitions = ["Idle", "Run", SubResource("AnimationNodeStateMachineTransition_5eyms"), "Idle", "Attack1", SubResource("AnimationNodeStateMachineTransition_fafuv"), "Attack1", "Idle", SubResource("AnimationNodeStateMachineTransition_0kmpp"), "Idle", "Death", SubResource("AnimationNodeStateMachineTransition_p0ta3"), "Death", "Death_Pose", SubResource("AnimationNodeStateMachineTransition_ejs84"), "Run", "Death", SubResource("AnimationNodeStateMachineTransition_uxomi"), "Run", "Idle", SubResource("AnimationNodeStateMachineTransition_ov55v"), "Start", "Idle", SubResource("AnimationNodeStateMachineTransition_lo8sf")]
+graph_offset = Vector2(-84, -40)
+
+[node name="Rogue" instance=ExtResource("1_ends1")]
+
+[node name="AnimationTree" type="AnimationTree" parent="." index="0"]
+tree_root = SubResource("AnimationNodeStateMachine_ov55v")
+anim_player = NodePath("../AnimationPlayer")
+parameters/conditions/isAttacking = false
+parameters/conditions/isDead = false
+parameters/conditions/isNotRunning = false
+parameters/conditions/isRunning = false
+
+[node name="Skeleton3D" parent="RootNode/Rig" index="0"]
+bones/1/position = Vector3(-2.36658e-32, 0.00392064, 1.97215e-33)
+bones/1/rotation = Quaternion(-1.11128e-10, 0.0431578, 2.57241e-09, 0.999068)
+bones/5/rotation = Quaternion(-0.558355, -0.0617718, -0.648074, 0.514222)
+bones/6/rotation = Quaternion(-6.27799e-09, -1.93397e-08, -0.487869, 0.872917)
+bones/8/rotation = Quaternion(-0.319778, -0.325449, 0.142112, 0.878424)
+bones/9/rotation = Quaternion(0.000572035, 0.00057205, -0.705004, 0.709203)
+bones/11/rotation = Quaternion(-0.617001, 0.0816378, 0.62165, 0.475601)
+bones/12/rotation = Quaternion(-8.32755e-09, 5.01468e-08, 0.511398, 0.859344)
+bones/14/rotation = Quaternion(-0.318051, 0.300265, -0.223722, 0.870995)
+bones/15/rotation = Quaternion(0.00104997, 0.00123653, 0.705974, 0.708236)
+bones/20/rotation = Quaternion(-5.8066e-11, -0.0313416, -1.88012e-09, 0.999509)
+bones/21/rotation = Quaternion(0.993543, 0.0834823, 0.0741622, 0.0200894)
+bones/22/rotation = Quaternion(0.219417, 5.9795e-08, -1.35013e-07, 0.975631)
+bones/23/rotation = Quaternion(-0.529943, -0.208785, 0.0472693, 0.82057)
+bones/25/rotation = Quaternion(0.99689, -0.0298219, 0.0313609, 0.0658575)
+bones/26/rotation = Quaternion(0.291519, -5.98296e-08, 1.91109e-07, 0.956565)
+bones/27/rotation = Quaternion(-0.568347, 0.114396, -0.0100839, 0.814735)
+bones/30/position = Vector3(0.00202182, 0.000259903, 0.00205181)
+bones/31/rotation = Quaternion(9.65792e-09, 1.77955e-09, 0.985719, -0.168398)
+bones/38/rotation = Quaternion(-5.83589e-09, 6.43837e-10, 0.994809, 0.101756)
+bones/44/position = Vector3(0.00520841, 0.00788312, -0.000576374)
+bones/44/rotation = Quaternion(-0.794627, 1.2666e-07, -0.607098, 2.98023e-08)
+bones/46/position = Vector3(-0.00510844, 0.00788312, 0.000597369)
+bones/46/rotation = Quaternion(0.758253, 1.37836e-07, -0.651961, -1.86265e-08)
+
+[node name="Rogue_Cape" parent="RootNode/Rig/Skeleton3D" index="0"]
+transform = Transform3D(0.996275, -1.38015e-09, 0.0862353, 1.36097e-09, 1, 2.81247e-10, -0.0862353, -1.62828e-10, 0.996275, -4.17227e-11, 0.0120227, -5.25531e-10)
+
+[node name="Rogue_Cape" parent="RootNode/Rig/Skeleton3D/Rogue_Cape" index="0"]
+layers = 3
+
+[node name="Knife_Offhand" parent="RootNode/Rig/Skeleton3D" index="1"]
+transform = Transform3D(1.90674e-06, 0.262865, 0.964832, 0.999981, -0.0059382, 0.00161639, 0.00615464, 0.964814, -0.26286, 0.00507682, 0.00633664, -0.000190349)
+visible = false
+
+[node name="Knife_Offhand" parent="RootNode/Rig/Skeleton3D/Knife_Offhand" index="0"]
+layers = 3
+
+[node name="1H_Crossbow" parent="RootNode/Rig/Skeleton3D" index="2"]
+transform = Transform3D(0.000747441, -0.153091, -0.988212, -0.999995, -0.0031989, -0.000260248, -0.00312163, 0.988207, -0.153092, -0.00489558, 0.00742567, 0.000961802)
+visible = false
+
+[node name="1H_Crossbow" parent="RootNode/Rig/Skeleton3D/1H_Crossbow" index="0"]
+layers = 3
+
+[node name="Throwable" parent="RootNode/Rig/Skeleton3D" index="3"]
+transform = Transform3D(0.000747441, -0.153091, -0.988212, -0.999995, -0.0031989, -0.000260248, -0.00312163, 0.988207, -0.153092, -0.00518659, 0.00637329, 0.0028421)
+visible = false
+
+[node name="Throwable" parent="RootNode/Rig/Skeleton3D/Throwable" index="0"]
+layers = 3
+
+[node name="Knife" parent="RootNode/Rig/Skeleton3D" index="4"]
+transform = Transform3D(0.000747441, -0.153091, -0.988212, -0.999995, -0.0031989, -0.000260248, -0.00312163, 0.988207, -0.153092, -0.00491065, 0.00637906, 0.0010609)
+visible = false
+
+[node name="Knife" parent="RootNode/Rig/Skeleton3D/Knife" index="0"]
+layers = 3
+
+[node name="2H_Crossbow" parent="RootNode/Rig/Skeleton3D" index="5"]
+transform = Transform3D(0.000747441, -0.153091, -0.988212, -0.999995, -0.0031989, -0.000260248, -0.00312163, 0.988207, -0.153092, -0.00489558, 0.00742567, 0.000961802)
+
+[node name="2H_Crossbow" parent="RootNode/Rig/Skeleton3D/2H_Crossbow" index="0"]
+layers = 3
+
+[node name="Rogue_ArmLeft" parent="RootNode/Rig/Skeleton3D" index="6"]
+layers = 3
+
+[node name="Rogue_ArmRight" parent="RootNode/Rig/Skeleton3D" index="7"]
+layers = 3
+
+[node name="Rogue_Body" parent="RootNode/Rig/Skeleton3D" index="8"]
+layers = 3
+
+[node name="Rogue_Head" parent="RootNode/Rig/Skeleton3D" index="9"]
+layers = 3
+
+[node name="Rogue_LegLeft" parent="RootNode/Rig/Skeleton3D" index="10"]
+layers = 3
+
+[node name="Rogue_LegRight" parent="RootNode/Rig/Skeleton3D" index="11"]
+layers = 3

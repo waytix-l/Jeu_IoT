@@ -1,0 +1,211 @@
+[gd_scene load_steps=25 format=3 uid="uid://da11dmymdk58t"]
+
+[ext_resource type="PackedScene" uid="uid://bmir2w7007txe" path="res://assets/Characters/RogueHooded.fbx" id="1_uoep7"]
+[ext_resource type="Texture2D" uid="uid://geqgbu2rff1v" path="res://assets/Characters/texture_kaykit_characters.png" id="2_06nr2"]
+[ext_resource type="Material" uid="uid://dwjacpeoxnuur" path="res://assets/Characters/new_standard_material_3d.tres" id="3_jgw4g"]
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_jwcbc"]
+animation = &"1H_Melee_Attack_Slice_Horizontal"
+
+[sub_resource type="AnimationNodeTimeScale" id="AnimationNodeTimeScale_tyn2c"]
+
+[sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_6umxh"]
+graph_offset = Vector2(-467.065, -60.6211)
+nodes/Animation/node = SubResource("AnimationNodeAnimation_jwcbc")
+nodes/Animation/position = Vector2(-360, 80)
+nodes/TimeScale/node = SubResource("AnimationNodeTimeScale_tyn2c")
+nodes/TimeScale/position = Vector2(40, 160)
+node_connections = [&"TimeScale", 0, &"Animation", &"output", 0, &"TimeScale"]
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_n2qpn"]
+animation = &"Death_A"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_fcwdc"]
+animation = &"Death_A_Pose"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_sl76g"]
+animation = &"Idle"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_jlyii"]
+animation = &"Running_A"
+use_custom_timeline = true
+timeline_length = 0.8
+stretch_time_scale = false
+start_offset = 0.0
+loop_mode = 1
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_u5dng"]
+animation = &"Running_A"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_idnkb"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_bt502"]
+states/Running_A/node = SubResource("AnimationNodeAnimation_u5dng")
+states/Running_A/position = Vector2(381, 100)
+transitions = ["Start", "Running_A", SubResource("AnimationNodeStateMachineTransition_idnkb")]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_blxxq"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_3iru5"]
+xfade_time = 0.1
+advance_mode = 2
+advance_condition = &"isRunning"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_lbmo0"]
+xfade_time = 0.5
+advance_mode = 2
+advance_condition = &"isDead"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_u524n"]
+switch_mode = 2
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_psp81"]
+xfade_time = 0.5
+priority = 3
+advance_mode = 2
+advance_condition = &"isDead"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_e45p1"]
+xfade_time = 0.1
+advance_mode = 2
+advance_condition = &"isNotRunning"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_ggi2y"]
+xfade_time = 0.5
+advance_condition = &"isAttacking"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_iv1de"]
+xfade_time = 0.2
+switch_mode = 2
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_000x4"]
+states/Attack1/node = SubResource("AnimationNodeBlendTree_6umxh")
+states/Attack1/position = Vector2(335, -101)
+states/Death/node = SubResource("AnimationNodeAnimation_n2qpn")
+states/Death/position = Vector2(682, -101)
+states/Death_pose/node = SubResource("AnimationNodeAnimation_fcwdc")
+states/Death_pose/position = Vector2(849, -101)
+states/End/position = Vector2(898, 100)
+states/Idle/node = SubResource("AnimationNodeAnimation_sl76g")
+states/Idle/position = Vector2(335, 100)
+states/Run/node = SubResource("AnimationNodeAnimation_jlyii")
+states/Run/position = Vector2(573, 100)
+states/Start/position = Vector2(185, 100)
+states/StateMachine/node = SubResource("AnimationNodeStateMachine_bt502")
+states/StateMachine/position = Vector2(481, 196)
+transitions = ["Start", "Idle", SubResource("AnimationNodeStateMachineTransition_blxxq"), "Idle", "Run", SubResource("AnimationNodeStateMachineTransition_3iru5"), "Run", "Death", SubResource("AnimationNodeStateMachineTransition_lbmo0"), "Death", "Death_pose", SubResource("AnimationNodeStateMachineTransition_u524n"), "Idle", "Death", SubResource("AnimationNodeStateMachineTransition_psp81"), "Run", "Idle", SubResource("AnimationNodeStateMachineTransition_e45p1"), "Idle", "Attack1", SubResource("AnimationNodeStateMachineTransition_ggi2y"), "Attack1", "Idle", SubResource("AnimationNodeStateMachineTransition_iv1de")]
+graph_offset = Vector2(-5, -100)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4fxxw"]
+cull_mode = 2
+albedo_texture = ExtResource("2_06nr2")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_oua5h"]
+albedo_texture = ExtResource("2_06nr2")
+
+[node name="RogueHooded" instance=ExtResource("1_uoep7")]
+
+[node name="AnimationTree" type="AnimationTree" parent="." index="0"]
+tree_root = SubResource("AnimationNodeStateMachine_000x4")
+anim_player = NodePath("../AnimationPlayer")
+parameters/conditions/isAttacking = false
+parameters/conditions/isDead = false
+parameters/conditions/isNotRunning = false
+parameters/conditions/isRunning = false
+parameters/Attack1/TimeScale/scale = 1.0
+
+[node name="Skeleton3D" parent="RootNode/Rig" index="0"]
+bones/1/position = Vector3(-2.36658e-32, 0.00392064, 1.97215e-33)
+bones/1/rotation = Quaternion(-1.11128e-10, 0.0431578, 2.57241e-09, 0.999068)
+bones/5/rotation = Quaternion(-0.553752, -0.0633782, -0.657104, 0.507501)
+bones/6/rotation = Quaternion(-5.96246e-09, -1.94393e-08, -0.4736, 0.88074)
+bones/8/rotation = Quaternion(-0.317108, -0.327174, 0.133853, 0.880047)
+bones/9/rotation = Quaternion(0.00148201, 0.00148181, -0.701688, 0.712481)
+bones/11/rotation = Quaternion(-0.613121, 0.0832286, 0.629726, 0.469682)
+bones/12/rotation = Quaternion(-7.53669e-09, 5.02717e-08, 0.4978, 0.867292)
+bones/14/rotation = Quaternion(-0.315942, 0.301314, -0.215358, 0.873505)
+bones/15/rotation = Quaternion(0.00387682, 0.00458744, 0.704649, 0.709531)
+bones/20/rotation = Quaternion(-5.8066e-11, -0.0313416, -1.88012e-09, 0.999509)
+bones/21/rotation = Quaternion(0.992495, 0.0831304, 0.0760941, 0.0474611)
+bones/22/rotation = Quaternion(0.290799, 4.96712e-08, -1.39056e-07, 0.956784)
+bones/23/rotation = Quaternion(-0.567053, -0.20618, 0.0586118, 0.795302)
+bones/25/rotation = Quaternion(0.995164, -0.0310818, 0.0307717, 0.0879548)
+bones/26/rotation = Quaternion(0.348451, -4.8242e-08, 1.94358e-07, 0.937327)
+bones/27/rotation = Quaternion(-0.598667, 0.113865, -0.0149766, 0.792722)
+bones/30/position = Vector3(0.00202182, 0.000259903, 0.00205181)
+bones/31/rotation = Quaternion(9.65792e-09, 1.77955e-09, 0.985719, -0.168398)
+bones/38/rotation = Quaternion(-5.83589e-09, 6.43837e-10, 0.994809, 0.101756)
+bones/44/position = Vector3(0.00520841, 0.00788312, -0.000576374)
+bones/44/rotation = Quaternion(-0.794627, 1.2666e-07, -0.607098, 2.98023e-08)
+bones/46/position = Vector3(-0.00510844, 0.00788312, 0.000597369)
+bones/46/rotation = Quaternion(0.758253, 1.37836e-07, -0.651961, -1.86265e-08)
+
+[node name="Rogue_Cape" parent="RootNode/Rig/Skeleton3D" index="0"]
+transform = Transform3D(0.996275, -1.38015e-09, 0.0862353, 1.36097e-09, 1, 2.81247e-10, -0.0862353, -1.62828e-10, 0.996275, -4.17227e-11, 0.0120227, -5.25531e-10)
+
+[node name="Rogue_Cape" parent="RootNode/Rig/Skeleton3D/Rogue_Cape" index="0"]
+layers = 3
+material_override = SubResource("StandardMaterial3D_4fxxw")
+
+[node name="Knife_Offhand" parent="RootNode/Rig/Skeleton3D" index="1"]
+transform = Transform3D(0.000413475, 0.262926, 0.964815, 0.999871, -0.0155847, 0.00381909, 0.0160408, 0.96469, -0.262899, 0.00507405, 0.00627515, -0.000202637)
+
+[node name="Knife_Offhand" parent="RootNode/Rig/Skeleton3D/Knife_Offhand" index="0"]
+layers = 3
+material_override = SubResource("StandardMaterial3D_oua5h")
+
+[node name="1H_Crossbow" parent="RootNode/Rig/Skeleton3D" index="2"]
+transform = Transform3D(0.00332232, -0.161951, -0.986793, -0.999969, -0.00754661, -0.00212754, -0.00710263, 0.98677, -0.161971, -0.00489611, 0.00736299, 0.000952183)
+visible = false
+
+[node name="1H_Crossbow" parent="RootNode/Rig/Skeleton3D/1H_Crossbow" index="0"]
+layers = 3
+
+[node name="Throwable" parent="RootNode/Rig/Skeleton3D" index="3"]
+transform = Transform3D(0.00332232, -0.161951, -0.986793, -0.999969, -0.00754661, -0.00212754, -0.00710263, 0.98677, -0.161971, -0.00520132, 0.00630235, 0.00282558)
+visible = false
+
+[node name="Throwable" parent="RootNode/Rig/Skeleton3D/Throwable" index="0"]
+layers = 3
+
+[node name="Knife" parent="RootNode/Rig/Skeleton3D" index="4"]
+transform = Transform3D(0.00332232, -0.161951, -0.986793, -0.999969, -0.00754661, -0.00212754, -0.00710263, 0.98677, -0.161971, -0.00490941, 0.00631596, 0.00104697)
+
+[node name="Knife" parent="RootNode/Rig/Skeleton3D/Knife" index="0"]
+layers = 3
+material_override = ExtResource("3_jgw4g")
+
+[node name="2H_Crossbow" parent="RootNode/Rig/Skeleton3D" index="5"]
+transform = Transform3D(0.00332232, -0.161951, -0.986793, -0.999969, -0.00754661, -0.00212754, -0.00710263, 0.98677, -0.161971, -0.00489611, 0.00736299, 0.000952183)
+visible = false
+
+[node name="2H_Crossbow" parent="RootNode/Rig/Skeleton3D/2H_Crossbow" index="0"]
+layers = 3
+
+[node name="Rogue_ArmLeft" parent="RootNode/Rig/Skeleton3D" index="6"]
+layers = 3
+material_override = ExtResource("3_jgw4g")
+
+[node name="Rogue_ArmRight" parent="RootNode/Rig/Skeleton3D" index="7"]
+layers = 3
+material_override = ExtResource("3_jgw4g")
+
+[node name="Rogue_Body" parent="RootNode/Rig/Skeleton3D" index="8"]
+layers = 3
+material_override = ExtResource("3_jgw4g")
+
+[node name="Rogue_LegLeft" parent="RootNode/Rig/Skeleton3D" index="9"]
+layers = 3
+material_override = ExtResource("3_jgw4g")
+
+[node name="Rogue_LegRight" parent="RootNode/Rig/Skeleton3D" index="10"]
+layers = 3
+material_override = ExtResource("3_jgw4g")
+
+[node name="Rogue_Head_Hooded" parent="RootNode/Rig/Skeleton3D" index="11"]
+layers = 3
+material_override = ExtResource("3_jgw4g")

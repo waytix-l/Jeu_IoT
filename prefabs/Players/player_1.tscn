@@ -1,0 +1,142 @@
+[gd_scene load_steps=11 format=4 uid="uid://bphkci7lvtjqr"]
+
+[ext_resource type="Script" uid="uid://db4qsxefghawd" path="res://scripts/Player.gd" id="1_prbcn"]
+[ext_resource type="PackedScene" uid="uid://da11dmymdk58t" path="res://assets/Characters/rogue_hooded.tscn" id="2_few15"]
+[ext_resource type="Shader" uid="uid://blh0ot0fpvdi0" path="res://shader/slash.tres" id="3_18ols"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_ocpp8"]
+font_size = 32
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_18ols"]
+viewport_path = NodePath("Spatial/SubViewport")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_5p5vm"]
+render_priority = 0
+shader = ExtResource("3_18ols")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fv4pe"]
+resource_name = "DefaultMaterial"
+vertex_color_use_as_albedo = true
+albedo_color = Color(0.735357, 0.735357, 0.735357, 1)
+metallic = 0.2
+roughness = 0.8
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_l7rhs"]
+_surfaces = [{
+"aabb": AABB(-0.0102538, -0.00882726, -8.12217e-05, 0.0197235, 0.00894347, 9.96794e-05),
+"format": 34359742465,
+"index_count": 90,
+"index_data": PackedByteArray("AAACAAEAAwACAAAAAgAEAAEABQABAAQABAAGAAUABwAFAAYACAAKAAkACQALAAgABgANAAwADAAHAAYADgAIAAsACwAPAA4ADwARABAAEAAOAA8AEQATABIAEgAQABEAEwAVABQAFAASABMAFQAXABYAFgAUABUAFwAZABgAGAAWABcAGQAbABoAGgAYABkAGwAdABwAHAAaABsAHQAfAB4AHgAcAB0AAwAAAB4AHwADAB4A"),
+"name": "DefaultMaterial",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 32,
+"vertex_data": PackedByteArray("9NcJvOngqLscGJC2O6YWvE5ChbvTRAA2iUWFu+nJ+brEZkE3V/15uxI+D7uugHU2hGuOu+QMs7odXTg3cb0hvMV7Lrs0+Dq25MaUuyLxILqX5Ng2XlwmvHyj9bpm1OC2P/sKPAJAmrtVlPU2m1R4O9x7SrveOsa3jSYbPJJRSLtHqig3Bs5gOwQlXLsEFau3vf8nvI2jhboA7qK30p+ZuwC28zgX7YK2xpf1O0eZv7up1Zo3u2hCO5wDbbvj/n63BL6uO88n6btQ7SK3QUwGO6CLersvA8u39ZVdO71VArwa06K3/OgvOnlPf7snLU244QLKOiReC7wRqpW3RPBZuuDxeLvPeJ+4j7V+uZeMELzJejG3HXT0usIzabuPVaq4PVsDuzGgELzlKxy2RQMnuxxfV7uCNJW4yqB5u0vDCLyJOlA1nj8/u4ctRru9S024azawu30q9ruUJAI3B5VMu+8OPLv9x7y3arTnu2vAz7ucbNEpXjdfu7YoKLvMWoS2")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_a2lyf"]
+resource_name = "Root Scene_Circle"
+_surfaces = [{
+"aabb": AABB(-0.0102538, -0.00882726, -8.12217e-05, 0.0197235, 0.00894347, 9.96794e-05),
+"attribute_data": PackedByteArray("AACAPsYGkD4AAIA+jA1gPgAAAACMDWA+AAAAAMYGkD4AAAAAjA1gPgAAgD6MDWA+AAAAAIwNID4AAIA+jA0gPgAAAACMDSA+AACAPowNID4AAAAAGBvAPQAAgD4YG8A9AACAPmMDaD8AAAAAYwN4PwAAgD5jA3g/AAAAAGMDaD8AAAAAGBvAPeTyfz6gk/88kMBROKCiAD0AAIA+GBvAPQAAgD5jA1g/AAAAAGMDaD8AAIA+YwNoPwAAAABjA1g/AAAAAGMDWD8AAIA+YwNIPwAAAABjA0g/AACAPmMDWD8AAAAAYwNIPwAAgD5jAzg/AAAAAGMDOD8AAIA+YwNIPwAAAABjAzg/AACAPmMDKD8AAAAAYwMoPwAAgD5jAzg/AAAAAGMDKD8AAIA+YwMYPwAAAABjAxg/AACAPmMDKD8AAAAAYwMYPwAAgD5jAwg/AAAAAGMDCD8AAIA+YwMYPwAAAABjAwg/AACAPsYG8D4AAAAAxgbwPgAAgD5jAwg/AAAAAMYG8D4AAIA+xgbQPgAAAADGBtA+AACAPsYG8D4AAAAAxgbQPgAAgD7GBrA+AAAAAMYGsD4AAIA+xgbQPgAAAADGBpA+AACAPsYGsD4AAIA+xgaQPgAAAADGBrA+"),
+"format": 34359742487,
+"index_count": 90,
+"index_data": PackedByteArray("AAACAAEAAwACAAAABAAGAAUABwAFAAYACAAKAAkACwAJAAoADAAOAA0ADQAPAAwAEAASABEAEQATABAAFAAWABUAFQAXABQAGAAaABkAGQAbABgAHAAeAB0AHQAfABwAIAAiACEAIQAjACAAJAAmACUAJQAnACQAKAAqACkAKQArACgALAAuAC0ALQAvACwAMAAyADEAMQAzADAANAA2ADUANQA3ADQAOAA6ADkAOwA4ADkA"),
+"material": SubResource("StandardMaterial3D_fv4pe"),
+"name": "DefaultMaterial",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 60,
+"vertex_data": PackedByteArray("9NcJvOngqLscGJC2O6YWvE5ChbvTRAA2iUWFu+nJ+brEZkE3V/15uxI+D7uugHU2iUWFu+nJ+brEZkE3O6YWvE5ChbvTRAA2hGuOu+QMs7odXTg3cb0hvMV7Lrs0+Dq2hGuOu+QMs7odXTg3cb0hvMV7Lrs0+Dq25MaUuyLxILqX5Ng2XlwmvHyj9bpm1OC2P/sKPAJAmrtVlPU2m1R4O9x7SrveOsa3jSYbPJJRSLtHqig3Bs5gOwQlXLsEFau35MaUuyLxILqX5Ng2vf8nvI2jhboA7qK30p+ZuwC28zgX7YK2XlwmvHyj9bpm1OC2xpf1O0eZv7up1Zo3Bs5gOwQlXLsEFau3P/sKPAJAmrtVlPU2u2hCO5wDbbvj/n63u2hCO5wDbbvj/n63BL6uO88n6btQ7SK3QUwGO6CLersvA8u3xpf1O0eZv7up1Zo3QUwGO6CLersvA8u39ZVdO71VArwa06K3/OgvOnlPf7snLU24BL6uO88n6btQ7SK3/OgvOnlPf7snLU244QLKOiReC7wRqpW3RPBZuuDxeLvPeJ+49ZVdO71VArwa06K3RPBZuuDxeLvPeJ+4j7V+uZeMELzJejG3HXT0usIzabuPVaq44QLKOiReC7wRqpW3HXT0usIzabuPVaq4PVsDuzGgELzlKxy2RQMnuxxfV7uCNJW4j7V+uZeMELzJejG3RQMnuxxfV7uCNJW4yqB5u0vDCLyJOlA1nj8/u4ctRru9S024PVsDuzGgELzlKxy2nj8/u4ctRru9S024azawu30q9ruUJAI3B5VMu+8OPLv9x7y3yqB5u0vDCLyJOlA1B5VMu+8OPLv9x7y3arTnu2vAz7ucbNEpXjdfu7YoKLvMWoS2azawu30q9ruUJAI3V/15uxI+D7uugHU2arTnu2vAz7ucbNEp9NcJvOngqLscGJC2Xjdfu7YoKLvMWoS2DgGr/3gmt6wOAav/7CX+rA4Bq/+jMJOnDgGr/x8y06bR/1YA5CX1rNH/VgBFGT6z0f9WAPUj663R/1YARxi8s2//bwBGGLyzb/9vAH0XILRv/28AMhjGs2//bwBrFym0f/+qAMf+uL9//6oAoucitH//qgCZ/l3Af/+qAInklbJG/rAA2RXutEb+sABIFzq0Rv6wAK8VArVG/rAAaxcptFT+LwDM4yeyVP4vAATX1qtU/i8Ao+SRslT+LwBM1f2qXv/G/h7EPaJe/8b+/tLJqV7/xv7CvwegXv/G/lfV+qq+/8H+uLUMm77/wf62vRefvv/B/hqzuZm+/8H+qb8ToFj/DQEprHqWWP8NAZ6xN5lY/w0BoKq1lVj/DQHpst2ZpgEMAO6flJCmAQwAPqkslaYBDADanY2PpgEMAIaqzpXXASMBTY7ph9cBIwGlnOqO1wEjAU2LcobXASMB352Dj00B5QG0cdaHTQHlAQWKi4VNAeUB223FiU0B5QFYizCGOAB8As5ZjZM4AHwC5mzViTgAfAJ3VkCVOAB8ArhtaYkEALUAQUWJnQQAtQD3VKOVBAC1AB1Bnp8EALUAOFYClS0A6f9FPtegLQDp/y4zZaYtAOn/MzLjpi0A6f/pQISf")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_l7rhs")
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_2otxt"]
+radius = 0.6
+
+[node name="Player1" type="CharacterBody3D" groups=["Players"]]
+script = ExtResource("1_prbcn")
+
+[node name="Spatial" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.6, 0)
+
+[node name="SubViewport" type="SubViewport" parent="Spatial"]
+transparent_bg = true
+size = Vector2i(200, 50)
+
+[node name="HealthLabel" type="Label" parent="Spatial/SubViewport"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -63.5
+offset_top = -22.5
+offset_right = 63.5
+offset_bottom = 22.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "1000"
+label_settings = SubResource("LabelSettings_ocpp8")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Sprite3D" type="Sprite3D" parent="Spatial"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.180878, 0)
+billboard = 1
+texture = SubResource("ViewportTexture_18ols")
+
+[node name="Character" type="Node3D" parent="." groups=["Character"]]
+
+[node name="RogueHooded2" parent="Character" groups=["MeshCharacter"] instance=ExtResource("2_few15")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 0)
+
+[node name="Skeleton3D" parent="Character/RogueHooded2/RootNode/Rig" index="0"]
+bones/5/rotation = Quaternion(-0.552653, -0.0559701, -0.637881, 0.533431)
+bones/6/rotation = Quaternion(-6.9071e-09, -1.91241e-08, -0.516154, 0.856496)
+bones/8/rotation = Quaternion(-0.321713, -0.337618, 0.150566, 0.871691)
+bones/9/rotation = Quaternion(0.000811759, 0.000811781, -0.70412, 0.71008)
+bones/11/rotation = Quaternion(-0.611143, 0.0769556, 0.612999, 0.494787)
+bones/12/rotation = Quaternion(-9.91978e-09, 4.98562e-08, 0.538497, 0.842628)
+bones/14/rotation = Quaternion(-0.320719, 0.313834, -0.232704, 0.862842)
+bones/15/rotation = Quaternion(0.00257477, 0.00303276, 0.704433, 0.70976)
+bones/21/rotation = Quaternion(0.990096, 0.0835486, 0.0783698, 0.0811645)
+bones/22/rotation = Quaternion(0.379426, 3.63835e-08, -1.43109e-07, 0.925222)
+bones/23/rotation = Quaternion(-0.613316, -0.20177, 0.0738901, 0.760048)
+bones/25/rotation = Quaternion(0.992059, -0.0329989, 0.0299521, 0.117617)
+bones/26/rotation = Quaternion(0.425182, -3.19143e-08, 1.97696e-07, 0.905108)
+bones/27/rotation = Quaternion(-0.639934, 0.112736, -0.0220209, 0.759796)
+
+[node name="Knife_Offhand" parent="Character/RogueHooded2/RootNode/Rig/Skeleton3D" index="1"]
+transform = Transform3D(0.00237005, 0.262764, 0.964857, 0.999961, -0.00883112, -5.08722e-05, 0.00850776, 0.964819, -0.262775, 0.00506305, 0.00645331, -0.000171431)
+
+[node name="1H_Crossbow" parent="Character/RogueHooded2/RootNode/Rig/Skeleton3D" index="2"]
+transform = Transform3D(0.00250819, -0.157566, -0.987505, -0.999971, -0.00745117, -0.00135051, -0.00714557, 0.98748, -0.15758, -0.00488689, 0.00755118, 0.000984678)
+
+[node name="Throwable" parent="Character/RogueHooded2/RootNode/Rig/Skeleton3D" index="3"]
+transform = Transform3D(0.00250819, -0.157566, -0.987505, -0.999971, -0.00745117, -0.00135051, -0.00714557, 0.98748, -0.15758, -0.00518459, 0.00649073, 0.00285938)
+
+[node name="Knife" parent="Character/RogueHooded2/RootNode/Rig/Skeleton3D" index="4"]
+transform = Transform3D(0.00250819, -0.157566, -0.987505, -0.999971, -0.00745117, -0.00135051, -0.00714557, 0.98748, -0.15758, -0.00490058, 0.00650416, 0.00107949)
+
+[node name="2H_Crossbow" parent="Character/RogueHooded2/RootNode/Rig/Skeleton3D" index="5"]
+transform = Transform3D(0.00250819, -0.157566, -0.987505, -0.999971, -0.00745117, -0.00135051, -0.00714557, 0.98748, -0.15758, -0.00488689, 0.00755118, 0.000984678)
+
+[node name="Circle" type="MeshInstance3D" parent="Character"]
+transform = Transform3D(-6.08775e-06, -123.997, -1.54789e-05, -5.39492, -1.47816e-05, 123.88, -123.88, 6.57491e-06, -5.39492, 0.183831, 0.717489, 0.469685)
+material_override = SubResource("ShaderMaterial_5p5vm")
+mesh = SubResource("ArrayMesh_a2lyf")
+skeleton = NodePath("")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("CapsuleShape3D_2otxt")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0.766044, -0.642788, 0, 0.642788, 0.766044, 1, 3.34849e-08, -2.80971e-08, -10, 14, 0)
+
+[node name="AA_Timer" type="Timer" parent="."]
+
+[editable path="Character/RogueHooded2"]

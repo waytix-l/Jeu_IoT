@@ -1,0 +1,125 @@
+[gd_scene load_steps=2 format=3 uid="uid://skv8l83gw25c"]
+
+[ext_resource type="PackedScene" uid="uid://dh023n40truwc" path="res://assets/Characters/Knight.fbx" id="1_ldrax"]
+
+[node name="Knight" instance=ExtResource("1_ldrax")]
+
+[node name="Skeleton3D" parent="RootNode/Rig" index="0"]
+bones/1/position = Vector3(-2.3194e-10, 0.00373082, 0.000972827)
+bones/2/rotation = Quaternion(0.0969142, -0.215371, -0.0214854, 0.971474)
+bones/3/rotation = Quaternion(0.0633105, -1.41958e-08, -0.0295222, 0.997557)
+bones/5/position = Vector3(0.00212007, 0.00134132, 0.000345781)
+bones/5/rotation = Quaternion(-0.663522, -0.518899, -0.358999, 0.401998)
+bones/6/rotation = Quaternion(-3.73732e-08, -5.35853e-08, -0.731192, 0.682172)
+bones/8/rotation = Quaternion(-0.125852, -0.636367, -0.0444701, 0.75975)
+bones/9/position = Vector3(5.12227e-10, 0.000961251, -0.000575)
+bones/9/rotation = Quaternion(-0.386176, -0.352154, -0.600734, 0.604958)
+bones/15/rotation = Quaternion(-0.584963, 0.171522, 0.63295, 0.477255)
+bones/16/rotation = Quaternion(-1.07523e-08, 4.94606e-08, 0.499767, 0.86616)
+bones/18/rotation = Quaternion(-0.113176, 0.201362, -0.0272571, 0.972575)
+bones/22/rotation = Quaternion(-0.0828052, 0.21566, 0.0183575, 0.972778)
+bones/24/position = Vector3(0.00170945, 0.00113587, 0.000640642)
+bones/24/rotation = Quaternion(0.98453, 0.0458574, 0.0317534, 0.166103)
+bones/25/rotation = Quaternion(0.420344, 6.33804e-08, -2.92782e-07, 0.907365)
+bones/26/rotation = Quaternion(-0.572975, -0.268672, 0.0180078, 0.774074)
+bones/28/position = Vector3(-0.00170945, 0.00113587, -0.00056946)
+bones/28/rotation = Quaternion(0.980075, -0.0792642, -0.0131918, -0.181649)
+bones/29/rotation = Quaternion(0.0460213, -6.99816e-08, 3.16986e-08, 0.99894)
+bones/30/rotation = Quaternion(-0.517479, 0.354419, -0.0175303, 0.77865)
+bones/33/position = Vector3(0.00213918, 0.000259902, 0.00432495)
+bones/33/rotation = Quaternion(-0.705092, 0.0533355, 0.0533355, 0.705092)
+bones/34/rotation = Quaternion(9.65792e-09, 1.77955e-09, 0.985719, -0.168398)
+bones/40/position = Vector3(-0.00170945, 0.000259903, 0.00179352)
+bones/41/rotation = Quaternion(-1.8695e-08, 3.81931e-09, 0.946466, 0.322802)
+bones/46/position = Vector3(0.00453507, 0.00923306, -0.00544694)
+bones/47/position = Vector3(0.00340962, 0.00990554, 0.00629785)
+bones/47/rotation = Quaternion(-0.381657, -0.360966, -0.595765, -0.60754)
+bones/49/position = Vector3(-0.00524433, 0.00856259, -0.000251961)
+bones/49/rotation = Quaternion(0.722065, -0.23145, -0.620846, -0.199006)
+
+[node name="Knight_Cape" parent="RootNode/Rig/Skeleton3D" index="0"]
+transform = Transform3D(0.906307, -7.80779e-08, -0.422619, -0.140415, 0.943192, -0.301119, 0.398611, 0.332249, 0.854822, 4.35493e-10, 0.011621, 0.00252186)
+bone_idx = 4
+
+[node name="Knight_Cape" parent="RootNode/Rig/Skeleton3D/Knight_Cape" index="0"]
+transform = Transform3D(-0.00619598, -0.00140414, 0.00772258, -0.00320927, 0.00943192, -0.000859922, -0.00716313, -0.00301119, -0.00629462, 0.0369059, -0.00168433, 0.0161074)
+layers = 3
+
+[node name="Rectangle_Shield" parent="RootNode/Rig/Skeleton3D" index="1"]
+transform = Transform3D(0.999973, -0.000954094, 0.00723853, 0.000798065, 0.999767, 0.0215512, -0.00725744, -0.0215449, 0.999741, 0.00232237, 0.0101887, 0.00917408)
+visible = false
+bone_idx = 10
+
+[node name="Rectangle_Shield" parent="RootNode/Rig/Skeleton3D/Rectangle_Shield" index="0"]
+layers = 3
+
+[node name="Round_Shield" parent="RootNode/Rig/Skeleton3D" index="2"]
+transform = Transform3D(0.999973, -0.000954094, 0.00723853, 0.000798065, 0.999767, 0.0215512, -0.00725744, -0.0215449, 0.999741, 0.00232237, 0.0101887, 0.00917408)
+visible = false
+bone_idx = 11
+
+[node name="Round_Shield" parent="RootNode/Rig/Skeleton3D/Round_Shield" index="0"]
+layers = 3
+
+[node name="Spike_Shield" parent="RootNode/Rig/Skeleton3D" index="3"]
+transform = Transform3D(0.999973, -0.000954094, 0.00723853, 0.000798065, 0.999767, 0.0215512, -0.00725744, -0.0215449, 0.999741, 0.00232237, 0.0101887, 0.00917408)
+visible = false
+bone_idx = 12
+
+[node name="Spike_Shield" parent="RootNode/Rig/Skeleton3D/Spike_Shield" index="0"]
+layers = 3
+
+[node name="Badge_Shield" parent="RootNode/Rig/Skeleton3D" index="4"]
+transform = Transform3D(0.999973, -0.000954094, 0.00723853, 0.000798065, 0.999767, 0.0215512, -0.00725744, -0.0215449, 0.999741, 0.00232237, 0.0101887, 0.00917408)
+bone_idx = 13
+
+[node name="Badge_Shield" parent="RootNode/Rig/Skeleton3D/Badge_Shield" index="0"]
+layers = 3
+
+[node name="1H_Sword_Offhand" parent="RootNode/Rig/Skeleton3D" index="5"]
+transform = Transform3D(0.999973, -0.000954094, 0.00723853, 0.000798065, 0.999767, 0.0215512, -0.00725744, -0.0215449, 0.999741, 0.00231109, 0.0101551, 0.00761563)
+visible = false
+bone_idx = 14
+
+[node name="1H_Sword_Offhand" parent="RootNode/Rig/Skeleton3D/1H_Sword_Offhand" index="0"]
+layers = 3
+
+[node name="2H_Sword" parent="RootNode/Rig/Skeleton3D" index="6"]
+transform = Transform3D(-0.581348, -0.121961, -0.804462, -0.813654, 0.0871418, 0.574781, 1.73478e-06, 0.988702, -0.149893, -0.005932, 0.00698958, 0.000212347)
+bone_idx = 20
+
+[node name="2H_Sword" parent="RootNode/Rig/Skeleton3D/2H_Sword" index="0"]
+layers = 3
+
+[node name="1H_Sword" parent="RootNode/Rig/Skeleton3D" index="7"]
+transform = Transform3D(-0.581348, -0.121961, -0.804462, -0.813654, 0.0871418, 0.574781, 1.73478e-06, 0.988702, -0.149893, -0.005932, 0.00698958, 0.000212347)
+visible = false
+bone_idx = 21
+
+[node name="1H_Sword" parent="RootNode/Rig/Skeleton3D/1H_Sword" index="0"]
+layers = 3
+
+[node name="Knight_Helmet" parent="RootNode/Rig/Skeleton3D" index="8"]
+transform = Transform3D(1, -2.98023e-08, -2.08616e-07, -1.49012e-08, 0.985779, -0.16805, 1.49012e-07, 0.16805, 0.985778, 4.6018e-09, 0.0116101, 0.00256379)
+bone_idx = 23
+
+[node name="Knight_Helmet" parent="RootNode/Rig/Skeleton3D/Knight_Helmet" index="0"]
+layers = 3
+
+[node name="Knight_ArmLeft" parent="RootNode/Rig/Skeleton3D" index="9"]
+layers = 3
+
+[node name="Knight_ArmRight" parent="RootNode/Rig/Skeleton3D" index="10"]
+layers = 3
+
+[node name="Knight_Body" parent="RootNode/Rig/Skeleton3D" index="11"]
+layers = 3
+
+[node name="Knight_Head" parent="RootNode/Rig/Skeleton3D" index="12"]
+layers = 3
+
+[node name="Knight_LegLeft" parent="RootNode/Rig/Skeleton3D" index="13"]
+layers = 3
+
+[node name="Knight_LegRight" parent="RootNode/Rig/Skeleton3D" index="14"]
+layers = 3

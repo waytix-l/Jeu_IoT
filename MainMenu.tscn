@@ -1,0 +1,710 @@
+[gd_scene load_steps=5 format=3 uid="uid://qd67320i4iyh"]
+
+[ext_resource type="Script" uid="uid://detvh23tgrjob" path="res://scripts/main_menu.gd" id="1_i26rj"]
+[ext_resource type="Script" uid="uid://ybp103gqv2kd" path="res://scripts/PauseScreen.gd" id="2_eiy7p"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_eiy7p"]
+bg_color = Color(0.270588, 0.858824, 0.788235, 1)
+
+[sub_resource type="Theme" id="Theme_h7a2f"]
+/colors/color = Color(0.145345, 0.100875, 0.317715, 1)
+Button/styles/normal = SubResource("StyleBoxFlat_eiy7p")
+
+[node name="MainMenu" type="Node3D"]
+script = ExtResource("1_i26rj")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1059.0
+offset_bottom = 625.0
+
+[node name="ColorRect" type="ColorRect" parent="Control"]
+layout_mode = 0
+offset_right = 1060.0
+offset_bottom = 627.0
+color = Color(0.268633, 0.858329, 0.786287, 1)
+script = ExtResource("2_eiy7p")
+
+[node name="PlayButton" type="Button" parent="Control/ColorRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -100.5
+offset_top = -105.5
+offset_right = 99.5
+offset_bottom = -40.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 32
+text = "PLAY"
+icon_alignment = 1
+
+[node name="BonusButton" type="Button" parent="Control/ColorRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -100.0
+offset_top = -8.5
+offset_right = 100.0
+offset_bottom = 56.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 32
+text = "BONUS"
+
+[node name="InstructionButton" type="Button" parent="Control/ColorRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -125.0
+offset_top = 84.5
+offset_right = 125.0
+offset_bottom = 149.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 32
+text = "INSTRUCTIONS"
+
+[node name="OptionsButton" type="Button" parent="Control/ColorRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -100.0
+offset_top = 175.5
+offset_right = 100.0
+offset_bottom = 240.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 32
+text = "OPTIONS"
+
+[node name="Label6" type="Label" parent="Control/ColorRect"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -192.0
+offset_top = -123.5
+offset_right = -96.0
+offset_bottom = -100.5
+grow_horizontal = 0
+grow_vertical = 2
+text = "LAST GAMES"
+
+[node name="Label5" type="Label" parent="Control/ColorRect"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -136.0
+offset_top = -75.5
+offset_right = -96.0
+offset_bottom = -52.5
+grow_horizontal = 0
+grow_vertical = 2
+text = "5"
+
+[node name="Label4" type="Label" parent="Control/ColorRect"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -136.0
+offset_top = -35.5
+offset_right = -96.0
+offset_bottom = -12.5
+grow_horizontal = 0
+grow_vertical = 2
+text = "4"
+
+[node name="Label3" type="Label" parent="Control/ColorRect"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -136.0
+offset_top = 4.5
+offset_right = -96.0
+offset_bottom = 27.5
+grow_horizontal = 0
+grow_vertical = 2
+text = "3"
+
+[node name="Label2" type="Label" parent="Control/ColorRect"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -136.0
+offset_top = 44.5
+offset_right = -96.0
+offset_bottom = 67.5
+grow_horizontal = 0
+grow_vertical = 2
+text = "2"
+
+[node name="Label" type="Label" parent="Control/ColorRect"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -136.0
+offset_top = 84.5
+offset_right = -96.0
+offset_bottom = 107.5
+grow_horizontal = 0
+grow_vertical = 2
+text = "1"
+
+[node name="BonusMenu" type="ColorRect" parent="Control"]
+layout_mode = 0
+offset_right = 1059.0
+offset_bottom = 627.0
+color = Color(0.270588, 0.858824, 0.788235, 1)
+script = ExtResource("2_eiy7p")
+
+[node name="Label" type="Label" parent="Control/BonusMenu"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -77.5
+offset_top = 48.0
+offset_right = 77.5
+offset_bottom = 109.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 44
+text = "BONUS"
+
+[node name="ExitButton" type="Button" parent="Control/BonusMenu"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -100.0
+offset_top = -113.0
+offset_right = 100.0
+offset_bottom = -48.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 32
+text = "EXIT"
+
+[node name="Player1Bonus" type="ColorRect" parent="Control/BonusMenu"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 128.0
+offset_top = -175.0
+offset_right = 428.0
+offset_bottom = 175.0
+grow_vertical = 2
+color = Color(0.314316, 0.314316, 0.314316, 1)
+
+[node name="LabelPlayer" type="Label" parent="Control/BonusMenu/Player1Bonus"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -36.0
+offset_top = 16.0
+offset_right = 36.0
+offset_bottom = 39.0
+grow_horizontal = 2
+text = "PLAYER 1"
+
+[node name="AttackSpeedBonus" type="ColorRect" parent="Control/BonusMenu/Player1Bonus"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -125.0
+offset_top = 68.0
+offset_right = 125.0
+offset_bottom = 108.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.0687983, 0.0687983, 0.0687983, 1)
+
+[node name="Label" type="Label" parent="Control/BonusMenu/Player1Bonus/AttackSpeedBonus"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -17.0
+offset_right = 20.0
+offset_bottom = 17.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 18
+text = "AS Bonus : 0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Button+" type="Button" parent="Control/BonusMenu/Player1Bonus/AttackSpeedBonus"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -40.0
+offset_top = -20.0
+offset_bottom = 20.0
+grow_horizontal = 0
+grow_vertical = 2
+theme = SubResource("Theme_h7a2f")
+theme_override_font_sizes/font_size = 24
+text = "+"
+
+[node name="Button-" type="Button" parent="Control/BonusMenu/Player1Bonus/AttackSpeedBonus"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -20.0
+offset_right = 40.0
+offset_bottom = 20.0
+grow_vertical = 2
+theme = SubResource("Theme_h7a2f")
+theme_override_font_sizes/font_size = 24
+text = "-"
+
+[node name="SpeedBonus" type="ColorRect" parent="Control/BonusMenu/Player1Bonus"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -125.0
+offset_top = 12.0
+offset_right = 125.0
+offset_bottom = 52.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.0687983, 0.0687983, 0.0687983, 1)
+
+[node name="Label" type="Label" parent="Control/BonusMenu/Player1Bonus/SpeedBonus"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -17.0
+offset_right = 20.0
+offset_bottom = 17.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 18
+text = "Speed Bonus : 0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Button+" type="Button" parent="Control/BonusMenu/Player1Bonus/SpeedBonus"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -40.0
+offset_top = -20.0
+offset_bottom = 20.0
+grow_horizontal = 0
+grow_vertical = 2
+theme = SubResource("Theme_h7a2f")
+theme_override_font_sizes/font_size = 24
+text = "+"
+
+[node name="Button-" type="Button" parent="Control/BonusMenu/Player1Bonus/SpeedBonus"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -20.0
+offset_right = 40.0
+offset_bottom = 20.0
+grow_vertical = 2
+theme = SubResource("Theme_h7a2f")
+theme_override_font_sizes/font_size = 24
+text = "-"
+
+[node name="DamageBonus" type="ColorRect" parent="Control/BonusMenu/Player1Bonus"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -125.0
+offset_top = -44.0
+offset_right = 125.0
+offset_bottom = -4.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.0687983, 0.0687983, 0.0687983, 1)
+
+[node name="Label" type="Label" parent="Control/BonusMenu/Player1Bonus/DamageBonus"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -17.0
+offset_right = 20.0
+offset_bottom = 17.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 18
+text = "Damage Bonus : 0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Button+" type="Button" parent="Control/BonusMenu/Player1Bonus/DamageBonus"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -40.0
+offset_top = -20.0
+offset_bottom = 20.0
+grow_horizontal = 0
+grow_vertical = 2
+theme = SubResource("Theme_h7a2f")
+theme_override_font_sizes/font_size = 24
+text = "+"
+
+[node name="Button-" type="Button" parent="Control/BonusMenu/Player1Bonus/DamageBonus"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -20.0
+offset_right = 40.0
+offset_bottom = 20.0
+grow_vertical = 2
+theme = SubResource("Theme_h7a2f")
+theme_override_font_sizes/font_size = 24
+text = "-"
+
+[node name="HealthBonus" type="ColorRect" parent="Control/BonusMenu/Player1Bonus"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -125.0
+offset_top = -100.0
+offset_right = 125.0
+offset_bottom = -60.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.0687983, 0.0687983, 0.0687983, 1)
+
+[node name="Label" type="Label" parent="Control/BonusMenu/Player1Bonus/HealthBonus"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -17.0
+offset_right = 20.0
+offset_bottom = 17.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 18
+text = "Health Bonus : 0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Button+" type="Button" parent="Control/BonusMenu/Player1Bonus/HealthBonus"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -40.0
+offset_top = -20.0
+offset_bottom = 20.0
+grow_horizontal = 0
+grow_vertical = 2
+theme = SubResource("Theme_h7a2f")
+theme_override_font_sizes/font_size = 24
+text = "+"
+
+[node name="Button-" type="Button" parent="Control/BonusMenu/Player1Bonus/HealthBonus"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -20.0
+offset_right = 40.0
+offset_bottom = 20.0
+grow_vertical = 2
+theme = SubResource("Theme_h7a2f")
+theme_override_font_sizes/font_size = 24
+text = "-"
+
+[node name="BonusPoints" type="Label" parent="Control/BonusMenu/Player1Bonus"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 101.0
+offset_top = -39.0
+offset_right = 138.0
+offset_bottom = -16.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 14
+text = "5"
+horizontal_alignment = 1
+
+[node name="LabelPoints" type="Label" parent="Control/BonusMenu/Player1Bonus"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -130.0
+offset_top = -39.0
+offset_right = 102.0
+offset_bottom = -16.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 14
+text = "NOMBRE DE POINTS RESTANTS : "
+horizontal_alignment = 1
+
+[node name="Player2Bonus" type="ColorRect" parent="Control/BonusMenu"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -428.0
+offset_top = -175.0
+offset_right = -128.0
+offset_bottom = 175.0
+grow_horizontal = 0
+grow_vertical = 2
+color = Color(0.314316, 0.314316, 0.314316, 1)
+
+[node name="Label" type="Label" parent="Control/BonusMenu/Player2Bonus"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -36.0
+offset_top = 16.0
+offset_right = 36.0
+offset_bottom = 39.0
+grow_horizontal = 2
+text = "PLAYER 2"
+
+[node name="ColorRect4" type="ColorRect" parent="Control/BonusMenu/Player2Bonus"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -125.0
+offset_top = 68.0
+offset_right = 125.0
+offset_bottom = 108.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.0687983, 0.0687983, 0.0687983, 1)
+
+[node name="ColorRect3" type="ColorRect" parent="Control/BonusMenu/Player2Bonus"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -125.0
+offset_top = 12.0
+offset_right = 125.0
+offset_bottom = 52.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.0687983, 0.0687983, 0.0687983, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="Control/BonusMenu/Player2Bonus"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -125.0
+offset_top = -44.0
+offset_right = 125.0
+offset_bottom = -4.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.0687983, 0.0687983, 0.0687983, 1)
+
+[node name="ColorRect" type="ColorRect" parent="Control/BonusMenu/Player2Bonus"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -125.0
+offset_top = -100.0
+offset_right = 125.0
+offset_bottom = -60.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.0687983, 0.0687983, 0.0687983, 1)
+
+[node name="LabelPoints" type="Label" parent="Control/BonusMenu/Player2Bonus"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -130.5
+offset_top = -39.0
+offset_right = 130.5
+offset_bottom = -16.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 14
+text = "NOMBRE DE POINTS RESTANTS : 5"
+horizontal_alignment = 1
+
+[node name="InstructionsMenu" type="ColorRect" parent="Control"]
+visible = false
+layout_mode = 0
+offset_right = 1059.0
+offset_bottom = 627.0
+color = Color(0.270588, 0.858824, 0.788235, 1)
+script = ExtResource("2_eiy7p")
+
+[node name="LabelText" type="Label" parent="Control/InstructionsMenu"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -263.0
+offset_top = -103.5
+offset_right = 263.0
+offset_bottom = 103.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 28
+text = "Déplacement Joueur 1 : ZQSD / JoyStick
+Attaque Joueur 1 : R / Bouton
+
+Déplacement Joueur 2 : IJKL / JoyStick
+Attaque Joueur 2 : O / Bouton"
+horizontal_alignment = 1
+
+[node name="Label" type="Label" parent="Control/InstructionsMenu"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -77.5
+offset_top = 48.0
+offset_right = 77.5
+offset_bottom = 109.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 44
+text = "INSTRUCTIONS"
+
+[node name="ExitButton" type="Button" parent="Control/InstructionsMenu"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -100.0
+offset_top = -113.0
+offset_right = 100.0
+offset_bottom = -48.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 32
+text = "EXIT"
+
+[node name="OptionMenu" type="ColorRect" parent="Control"]
+visible = false
+layout_mode = 0
+offset_right = 1059.0
+offset_bottom = 627.0
+color = Color(0.270588, 0.858824, 0.788235, 1)
+script = ExtResource("2_eiy7p")
+
+[node name="ExitButton" type="Button" parent="Control/OptionMenu"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -100.0
+offset_top = -113.0
+offset_right = 100.0
+offset_bottom = -48.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 32
+text = "EXIT"
