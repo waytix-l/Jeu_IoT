@@ -178,35 +178,48 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.41897, 0, 1.19209e-07)
 shape = SubResource("BoxShape3D_pkg7o")
 
 [node name="Skeleton3D" parent="GridContainer/SubViewportContainer/SubViewport/Player1/Character/RogueHooded2/RootNode/Rig" index="0"]
-bones/5/rotation = Quaternion(-0.559695, -0.0610083, -0.644561, 0.517263)
-bones/6/rotation = Quaternion(-6.4081e-09, -1.9297e-08, -0.493737, 0.869611)
-bones/8/rotation = Quaternion(-0.32088, -0.325324, 0.145214, 0.877561)
-bones/9/rotation = Quaternion(0.000149473, 0.000149484, -0.706558, 0.707655)
-bones/11/rotation = Quaternion(-0.618077, 0.0808583, 0.618531, 0.478396)
-bones/12/rotation = Quaternion(-8.65494e-09, 5.00913e-08, 0.517001, 0.855985)
-bones/14/rotation = Quaternion(-0.319112, 0.300473, -0.226835, 0.86973)
-bones/15/rotation = Quaternion(0.000266646, 0.000314069, 0.70683, 0.707383)
-bones/21/rotation = Quaternion(0.993699, 0.0836803, 0.0735693, 0.0121636)
-bones/22/rotation = Quaternion(0.198826, 6.26245e-08, -1.33724e-07, 0.980035)
-bones/23/rotation = Quaternion(-0.51924, -0.209405, 0.0441393, 0.8274)
-bones/25/rotation = Quaternion(0.99722, -0.0295299, 0.0314826, 0.060744)
-bones/26/rotation = Quaternion(0.27632, -6.28513e-08, 1.90137e-07, 0.961066)
-bones/27/rotation = Quaternion(-0.560268, 0.114499, -0.00881847, 0.820312)
+bones/1/position = Vector3(-2.36658e-32, 0.00392064, 1.97215e-33)
+bones/1/rotation = Quaternion(-1.11128e-10, 0.0431578, 2.57241e-09, 0.999068)
+bones/5/rotation = Quaternion(-0.551617, -0.0622477, -0.655786, 0.511652)
+bones/6/rotation = Quaternion(-6.08556e-09, -1.94011e-08, -0.479173, 0.877721)
+bones/8/rotation = Quaternion(-0.31687, -0.33055, 0.135097, 0.87868)
+bones/9/rotation = Quaternion(0.00165415, 0.00165365, -0.701118, 0.713041)
+bones/11/rotation = Quaternion(-0.611092, 0.0823938, 0.628841, 0.473641)
+bones/12/rotation = Quaternion(-7.84472e-09, 5.02246e-08, 0.503107, 0.864224)
+bones/14/rotation = Quaternion(-0.31553, 0.304854, -0.216821, 0.872063)
+bones/15/rotation = Quaternion(0.00457664, 0.00542041, 0.704243, 0.709924)
+bones/20/rotation = Quaternion(-5.8066e-11, -0.0313416, -1.88012e-09, 0.999509)
+bones/21/rotation = Quaternion(0.991326, 0.0832271, 0.0773597, 0.0660422)
+bones/22/rotation = Quaternion(0.339553, 4.24641e-08, -1.41424e-07, 0.940587)
+bones/23/rotation = Quaternion(-0.592449, -0.203942, 0.0668234, 0.776497)
+bones/25/rotation = Quaternion(0.993592, -0.0320857, 0.0303329, 0.104049)
+bones/26/rotation = Quaternion(0.390029, -3.95001e-08, 1.96321e-07, 0.920803)
+bones/27/rotation = Quaternion(-0.620973, 0.11332, -0.0187233, 0.775371)
+bones/30/position = Vector3(0.00202182, 0.000259903, 0.00205181)
+bones/31/rotation = Quaternion(9.65792e-09, 1.77955e-09, 0.985719, -0.168398)
+bones/38/rotation = Quaternion(-5.83589e-09, 6.43837e-10, 0.994809, 0.101756)
+bones/44/position = Vector3(0.00520841, 0.00788312, -0.000576374)
+bones/44/rotation = Quaternion(-0.794627, 1.2666e-07, -0.607098, 2.98023e-08)
+bones/46/position = Vector3(-0.00510844, 0.00788312, 0.000597369)
+bones/46/rotation = Quaternion(0.758253, 1.37836e-07, -0.651961, -1.86265e-08)
+
+[node name="Rogue_Cape" parent="GridContainer/SubViewportContainer/SubViewport/Player1/Character/RogueHooded2/RootNode/Rig/Skeleton3D" index="0"]
+transform = Transform3D(0.996275, -1.38015e-09, 0.0862353, 1.36097e-09, 1, 2.81247e-10, -0.0862353, -1.62828e-10, 0.996275, -4.17227e-11, 0.0120227, -5.25531e-10)
 
 [node name="Knife_Offhand" parent="GridContainer/SubViewportContainer/SubViewport/Player1/Character/RogueHooded2/RootNode/Rig/Skeleton3D" index="1"]
-transform = Transform3D(4.45495e-07, 0.262863, 0.964833, 0.999999, -0.00155204, 0.000422904, 0.00160901, 0.964832, -0.262863, 0.00507753, 0.00636265, -0.000186076)
+transform = Transform3D(-5.45448e-05, 0.262771, 0.964858, 0.999845, -0.0169695, 0.00467852, 0.0176028, 0.964709, -0.262729, 0.00507337, 0.0062968, -0.000197962)
 
 [node name="1H_Crossbow" parent="GridContainer/SubViewportContainer/SubViewport/Player1/Character/RogueHooded2/RootNode/Rig/Skeleton3D" index="2"]
-transform = Transform3D(0.000184488, -0.150706, -0.988578, -1, -0.000781178, -6.68999e-05, -0.000762398, 0.988578, -0.150706, -0.00489518, 0.00745214, 0.000963499)
+transform = Transform3D(0.00247076, -0.163869, -0.986479, -0.999967, -0.00803903, -0.00116864, -0.007739, 0.986449, -0.163884, -0.00489387, 0.007385, 0.000959523)
 
 [node name="Throwable" parent="GridContainer/SubViewportContainer/SubViewport/Player1/Character/RogueHooded2/RootNode/Rig/Skeleton3D" index="3"]
-transform = Transform3D(0.000184488, -0.150706, -0.988578, -1, -0.000781178, -6.68999e-05, -0.000762398, 0.988578, -0.150706, -0.00518224, 0.00640437, 0.00284698)
+transform = Transform3D(0.00247076, -0.163869, -0.986479, -0.999967, -0.00803903, -0.00116864, -0.007739, 0.986449, -0.163884, -0.00520362, 0.00632343, 0.00283164)
 
 [node name="Knife" parent="GridContainer/SubViewportContainer/SubViewport/Player1/Character/RogueHooded2/RootNode/Rig/Skeleton3D" index="4"]
-transform = Transform3D(0.000184488, -0.150706, -0.988578, -1, -0.000781178, -6.68999e-05, -0.000762398, 0.988578, -0.150706, -0.0049106, 0.00640578, 0.0010651)
+transform = Transform3D(0.00247076, -0.163869, -0.986479, -0.999967, -0.00803903, -0.00116864, -0.007739, 0.986449, -0.163884, -0.00490826, 0.00633792, 0.00105361)
 
 [node name="2H_Crossbow" parent="GridContainer/SubViewportContainer/SubViewport/Player1/Character/RogueHooded2/RootNode/Rig/Skeleton3D" index="5"]
-transform = Transform3D(0.000184488, -0.150706, -0.988578, -1, -0.000781178, -6.68999e-05, -0.000762398, 0.988578, -0.150706, -0.00489518, 0.00745214, 0.000963499)
+transform = Transform3D(0.00247076, -0.163869, -0.986479, -0.999967, -0.00803903, -0.00116864, -0.007739, 0.986449, -0.163884, -0.00489387, 0.007385, 0.000959523)
 
 [node name="CooldownTimer" type="Timer" parent="GridContainer/SubViewportContainer/SubViewport/Player1"]
 

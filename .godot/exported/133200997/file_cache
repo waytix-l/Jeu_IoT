@@ -1,0 +1,15 @@
+res://assets/Characters/knight.tscn::571deaf29ea582a2b6fbc8dd412bd6a2::1742826864::res://.godot/exported/133200997/export-05be1e27ba4e64b3865c0d8379479078-knight.scn
+res://assets/Characters/new_standard_material_3d.tres::4fba0ead6180766e2f67cf6af666f826::1744632556::res://.godot/exported/133200997/export-19f8c6d1c43fe40f5adfbcd8f4f5d6e1-new_standard_material_3d.res
+res://assets/Characters/rogue.tscn::0efa1ad5d818cdc577226f4700039f6d::1744631700::res://.godot/exported/133200997/export-0cf8f3b945db01f0c0ae6d32e3e07e87-rogue.scn
+res://assets/Characters/rogue_hooded.tscn::b8ea04faddaf49d227bdbbf6c0451a7c::1744631700::res://.godot/exported/133200997/export-ddbc6f48ad865cdfaadad5df79ccda60-rogue_hooded.scn
+res://prefabs/Players/player_1.tscn::8c7ab57e29cc31711bd47047a2d95203::1744631700::res://.godot/exported/133200997/export-a918f0e640e9c2bb8abe54721019c740-player_1.scn
+res://prefabs/Players/player_2.tscn::985b87506a94f3131550074416c6ec5e::1744631700::res://.godot/exported/133200997/export-2a7d66cd9b85ad1e329588b8549fed57-player_2.scn
+res://prefabs/bullet.tscn::e680719221668dbd409bd576fc118962::1742826865::res://.godot/exported/133200997/export-acd74f1f4856b9e9454e702489b7197c-bullet.scn
+res://prefabs/enemy.tscn::12124cf3ba4ba83f69d9910a81b91a05::1744631700::res://.godot/exported/133200997/export-b4c9013847194aab24d7270e847c4f05-enemy.scn
+res://scripts/button_group1.tres::4af2fc4067eb19357f9cfc9f7818e2a3::1741364897::res://.godot/exported/133200997/export-2c1317ad0d4cc80658100eff70fc09d2-button_group1.res
+res://scripts/button_group2.tres::56aca33c9cd33edfa252dd1a62414714::1741364904::res://.godot/exported/133200997/export-21c2afbe7e686ced6dcff3a1bfc06c22-button_group2.res
+res://shader/slash.tres::8fa509a6be68304ef7a5bc1865189b5b::1744632833::res://.godot/exported/133200997/export-b89c9840aaaca25dc82bdb1923cc3710-slash.res
+res://ChooseClass.tscn::07568fa7117dad1f8c76cbd94aa5e2bb::1744631700::res://.godot/exported/133200997/export-ba50c115277aeb7bf8e15d8449649261-ChooseClass.scn
+res://MainMenu.tscn::b67aa55de97cbf5d48364747a400d534::1744632833::res://.godot/exported/133200997/export-e20540a8a37e906f11cb1dae59cc6ed4-MainMenu.scn
+res://test_scene.tscn::f52e104ac29449bb5d058bb599b1713e::1742826865::res://.godot/exported/133200997/export-cafae89b2e9ebf0216ddfb8de4de99ea-test_scene.scn
+res://world.tscn::1c4b3382e5265c2601375525d7e758e5::1744632833::res://.godot/exported/133200997/export-76e0adcbc83681695885bae615f516ae-world.scn
